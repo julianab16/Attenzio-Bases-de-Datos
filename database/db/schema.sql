@@ -18,7 +18,7 @@ rol_id INTEGER NOT NULL,
 nombre VARCHAR(50) NOT NULL,
 correo VARCHAR(50) NOT NULL,
 contraseña VARCHAR(50) NOT NULL,
-numero de celular VARCHAR(50),
+numeroCelular VARCHAR(50),
 direccion VARCHAR(50),
 foto BYTEA,
 FOREIGN KEY (rol_id) REFERENCES Rol (rol_id) 
@@ -46,13 +46,13 @@ FOREIGN KEY (curso_id) REFERENCES Curso (curso_id)
 CREATE TABLE EstudianteClase( 
 id INTEGER NOT NULL, 
 clase_id INTEGER NOT NULL,
-latitud NOT NULL,
-longitud NOT NULL,
+latitud  VARCHAR(50) NOT NULL,
+longitud  VARCHAR(50) NOT NULL,
 fecha DATE NOT NULL,
 hora TIME NOT NULL,
 PRIMARY KEY (id, clase_id),
 FOREIGN KEY (clase_id) REFERENCES Clase (clase_id),
-FOREIGN KEY (id) REFERENCES Estudiante (id) 
+FOREIGN KEY (id) REFERENCES Usuario (id) 
 );
 
 -- Pregunta table
@@ -75,10 +75,12 @@ FOREIGN KEY (QR) REFERENCES Pregunta (QR)
 CREATE TABLE OpcionEstudiante ( 
 OQR INTEGER NOT NULL, 
 id INTEGER NOT NULL,
+QR INTEGER NOT NULL,
 puntaje DECIMAL(5,2) NOT NULL,
-latitud NOT NULL,
-longitud NOT NULL,
+latitud  VARCHAR(50) NOT NULL,
+longitud VARCHAR(50) NOT NULL,
 PRIMARY KEY (OQR, id),
 FOREIGN KEY (QR) REFERENCES Pregunta (QR),
-FOREIGN KEY (id) REFERENCES Estudiante (id) 
+FOREIGN KEY (id) REFERENCES Usuario (id) 
 );
+
