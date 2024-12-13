@@ -82,3 +82,10 @@ PRIMARY KEY (OQR, id),
 FOREIGN KEY (id) REFERENCES Usuario (id) 
 );
 
+-- RecursoDeClase table
+CREATE TABLE RecursoDeClase ( 
+rid INTEGER PRIMARY KEY NOT NULL,
+clase_id INTEGER NOT NULL,
+recurso_url VARCHAR(300) NOT NULL,
+FOREIGN KEY (clase_id) REFERENCES Clase (clase_id) 
+);

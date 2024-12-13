@@ -9,7 +9,7 @@ class Clase(models.Model):
     hora = models.TimeField(null=False)
 
     class Meta:
-        db_table = "clase"
+        db_table = "Clase"
         
     def __str__(self):
         return self.name
