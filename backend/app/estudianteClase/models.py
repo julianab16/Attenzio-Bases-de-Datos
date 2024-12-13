@@ -1,9 +1,9 @@
 from django.db import models
-from app.estudiante.models import Estudiante
+from app.usuario.models import Usuario
 from app.clase.models import Clase
 
 class EstudianteClase(models.Model):
-    id = models.ForeignKey(Estudiante, primary_key=True, null=False)
+    id = models.ForeignKey(Usuario, primary_key=True, null=False)
     clase_id = models.ForeignKey(Clase, primary_key=True, null=False)
     fecha = models.DateField(null=False)
     hora = models.TimeField(null=False)

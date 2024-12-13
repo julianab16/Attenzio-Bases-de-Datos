@@ -1,4 +1,5 @@
 from django.db import models
+from app.rol.models import Rol
 
 class Usuario(models.Model):
     id = models.IntegerField(primary_key=True, blank=True, null=True)
@@ -7,7 +8,7 @@ class Usuario(models.Model):
     correo = models.CharField(max_length=50)
     contraseña = models.CharField(max_length=50)
     numeroCelular = models.CharField(max_length=50, blank=True, null=True)
-    rol_id = models.ForeignKey('Rol', on_delete=models.CASCADE, db_column='rol_id')
+    rol_id = models.ForeignKey(Rol, on_delete=models.CASCADE, db_column='rol_id')
     foto = models.BinaryField(blank=True, null=True) 
 
     class Meta:

@@ -38,13 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'apps.curso',
-    'apps.estudianteClase',
-    'apps.opcion',
-    'apps.opcionEstudiante',
-    'apps.pregunta',
-    'apps.rol',
-    'apps.usuario'
+    'app.clase',
+    'app.curso',
+    'app.estudianteClase',
+    'app.opcion',
+    'app.opcionEstudiante',
+    'app.pregunta',
+    'app.rol',
+    'app.usuario'
 ]
 
 MIDDLEWARE = [
