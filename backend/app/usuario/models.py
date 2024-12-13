@@ -1,8 +1,9 @@
 from django.db import models
 from app.rol.models import Rol
+from django.db.models import CASCADE 
 
 class Usuario(models.Model):
-    id = models.IntegerField(primary_key=True, blank=True, null=True)
+    id = models.IntegerField(primary_key=True, blank=True)
     nombre = models.CharField(max_length=80)
     direccion = models.CharField(max_length=50, blank=True, null=True)
     correo = models.CharField(max_length=50)

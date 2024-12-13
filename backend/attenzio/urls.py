@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.urls import include, re_path
 
+
 urlpatterns = [
     re_path('admin/', admin.site.urls),
+    re_path(r'^clase/', include('app.clase.urls')),
     re_path(r'^curso/', include('app.curso.urls')),
     re_path(r'^estudianteClase/', include('app.estudianteClase.urls')),
     re_path(r'^opcion/', include('app.opcion.urls')),
