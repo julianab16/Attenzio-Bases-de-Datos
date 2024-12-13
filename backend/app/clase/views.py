@@ -10,5 +10,5 @@ from .serializer import ClaseSerializer
 
 
 def home(request):
-    contexto = {'mensaje': 'Bienvenida, Julia'}
+    contexto = {'mensaje': 'Bienvenida, Gab'}
     return render(request, 'clase/home.html', contexto)
