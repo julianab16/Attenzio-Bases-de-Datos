@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import EstudianteClase
+from .models import RecursoDeClase
 
-class EstudianteClaseSerializer(serializers.ModelSerializer):
+class RecursoDeClaseSerializer(serializers.ModelSerializer):
   
   class Meta:
-    model = EstudianteClase
+    model = RecursoDeClase
     fields = '__all__'

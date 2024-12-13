@@ -1,12 +1,22 @@
-from django.shortcuts import render, redirect
-from .serializer import EstudianteClaseForm
+from django.shortcuts import render
 
-def registrarEstudianteClase(request):
-    if request.method == 'POST':
-        form = EstudianteClaseForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('index')
-    else:
-        form = EstudianteClaseForm()
-    return render(request, 'estudianteClase/create_estudiante_clase.html', {'form': form})
+# Create your views here.
+
+from rest_framework import generics, status
+from rest_framework.response import Response
+
+from .models import RecursoDeClase
+from .serializer import RecursoDeClaseSerializer
+
+class ListCreateRecursoDeClase(generics.ListAPIView):
+  queryset = RecursoDeClase.objects.all()
+  serializer_class = RecursoDeClaseSerializer
+  
+  def post(self, request, *args, **kwargs):
+    data= request.data
+    serr = RecursoDeClaseSerializer(data=data)
+    if (serr.is_valid()):
+      serr.save()
+      return Response(serr.validated_data, status=status.HTTP_200_OK)  
+    
+    return Response(status=status.HTTP_400_BAD_REQUEST)
