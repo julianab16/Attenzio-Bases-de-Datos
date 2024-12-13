@@ -11,7 +11,7 @@ class Clase(models.Model):
 
 
     class Meta:
-        db_table = "clase"
+        db_table = "Clase"
         
     def __str__(self):
         return self.name
