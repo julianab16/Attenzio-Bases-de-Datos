@@ -8,8 +8,8 @@ class EstudianteClase(models.Model):
     id = models.AutoField(primary_key=True) 
     usuario_id = models.ForeignKey(Usuario, null=False, on_delete=models.CASCADE)
     clase_id = models.ForeignKey(Clase, on_delete=models.CASCADE)
-    fecha = models.DateField(null=False)
-    hora = models.TimeField(null=False)
+    fecha = models.DateTimeField(null=False, auto_now_add=True)
+#    hora = models.TimeField(null=False)
     latitud = models.CharField(null=False, max_length=50)
     latitud = models.CharField(null=False, max_length=50)
     
