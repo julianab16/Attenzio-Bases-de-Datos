@@ -1,10 +1,9 @@
 from rest_framework.urlpatterns import format_suffix_patterns
 from django.urls import re_path
-
+from . import views
 from .views import *
 
 urlpatterns = [
-  re_path(r'$', ListCreateClase.as_view(), name='create-list-clase')
+    re_path('', views.home, name='home')
 ]
 
-urlpatterns = format_suffix_patterns(urlpatterns)

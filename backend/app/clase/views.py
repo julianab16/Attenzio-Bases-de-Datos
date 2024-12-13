@@ -8,15 +8,7 @@ from django.shortcuts import render
 
 from .serializer import ClaseSerializer
 
-class ListCreateClase(generics.ListAPIView):
-  queryset = Clase.objects.all()
-  serializer_class = ClaseSerializer
-  
-  def post(self, request, *args, **kwargs):
-    data= request.data
-    serr = ClaseSerializer(data=data)
-    if (serr.is_valid()):
-      serr.save()
-      return Response(serr.validated_data, status=status.HTTP_200_OK)  
-    
-    return Response(status=status.HTTP_400_BAD_REQUEST)
+
+def home(request):
+    contexto = {'mensaje': 'Bienvenida, Julia'}
+    return render(request, 'clase/home.html', contexto)
