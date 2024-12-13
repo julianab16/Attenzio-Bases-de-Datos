@@ -12,7 +12,7 @@ INSERT INTO Rol (rol_id, nombre) VALUES
 (3, 'Estudiante');
 
 -- Insert record into the Usuario table
-INSERT INTO Usuario (id, rol_id, nombre, correo, contraseña, numero, direccion, foto) VALUES
+INSERT INTO Usuario (id, rol_id, nombre, correo, contraseña, numeroCelular, direccion, foto) VALUES
 (1, 1, 'Admin User', 'admin@example.com', 'admin123', '1234567890', 'Calle Principal 123', NULL),
 (2, 2, 'Profesor Uno', 'profesor1@example.com', 'prof123', '0987654321', 'Calle Secundaria 456', NULL),
 (3, 3, 'Estudiante Uno', 'estudiante1@example.com', 'estu123', '5555555555', 'Calle Universitaria 789', NULL);
