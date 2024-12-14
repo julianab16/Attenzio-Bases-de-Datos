@@ -1,0 +1,58 @@
+<!-- templates/registro_usuario.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        /* Estilo para separar los elementos del formulario */
+        form {
+            width: 300px;
+            margin: 0 auto;  /* Centra el formulario en la página */
+        }
+        label {
+            display: block; /* Hace que el label ocupe toda la línea */
+            margin-bottom: 5px; /* Espacio entre la etiqueta y el campo */
+        }
+        input {
+            width: 100%;  /* Hace que el campo de texto ocupe todo el ancho del contenedor */
+            padding: 8px;  /* Da espacio al texto dentro del campo */
+            margin-bottom: 15px;  /* Espacio debajo del campo */
+            box-sizing: border-box; /* Asegura que el padding no se desborde fuera del campo */
+        }
+        h2 {
+            text-align: center;  /* Centra el título */
+            margin-bottom: 20px;  /* Da un poco de espacio entre el título y el formulario */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Formulario de Ingreso de Usuario</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label for="correo">Correo:</label>
+        {{ form.correo }}  <!-- Campo del formulario para el Correo -->
+        
+        <label for="contraseña">Contraseña:</label>
+        {{ form.contraseña }}  <!-- Campo del formulario para la Contraseña -->
+
+        
+        <button type="submit">Registrar</button>
+    </form>
+
+    {% if form.errors %}
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</body>
+</html>

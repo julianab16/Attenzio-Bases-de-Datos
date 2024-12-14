@@ -14,6 +14,8 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -25,14 +27,6 @@ SECRET_KEY = '2c@5j*lszodbr@_4o7_jbm8uj#w@58ajm9hylom^&79)mp4oy='
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-import os
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-# Configuración para archivos de medios (subidos por los usuarios)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Carpeta donde se guardarán los archivos subidos
 
 
 # Application definition
@@ -71,8 +65,8 @@ ROOT_URLCONF = 'attenzio.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',  
-        'DIRS': [BASE_DIR / 'templates'],  
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,6 +78,8 @@ TEMPLATES = [
         },
     },
 ]
+
+WSGI_APPLICATION = 'attenzio.wsgi.application'
 
 
 # Database
@@ -117,6 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

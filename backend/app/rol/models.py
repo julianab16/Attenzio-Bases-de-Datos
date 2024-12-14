@@ -8,4 +8,4 @@ class Rol(models.Model):
         db_table = "rol"
         
     def __str__(self):
-        return self.name
+        return self.nombre
