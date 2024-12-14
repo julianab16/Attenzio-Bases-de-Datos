@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attenzio Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+           body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Header Bar */
+        .header {
+            background-color: #f1c74d;
+            height: 50px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+        }
+
+        /* Logo Section */
+        .logo-container {
+            margin: 0 auto;
+            width: 350px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .logo-container img {
+            width: 120px;
+            height: auto;
+        }
+
+        .logo-container h1 {
+            font-size: 42px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .logo-container h1 span {
+            color: #f1c74d;
+        }
+
+        /* Login Button */
+        .login-btn {
+            display: inline-block;
+            background-color: #f1c74d;
+            color: #333;
+            font-weight: bold;
+            padding: 15px 30px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+        }
+
+        .login-btn:hover {
+            background-color: #e2b645;
+        }
+
+        /* Sign up Section */
+        .signup {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .signup a {
+            color: #f1c74d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup a:hover {
+            text-decoration: underline;
+        }
+
+        /* Role Selection Section */
+        .role-selection {
+            display: none;
+            margin: 0 auto;
+            width: 400px;
+            padding: 40px;
+            background-color: #fff8e1;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .role-selection h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .role-btn {
+            display: block;
+            background-color: #f1c74d;
+            color: #333;
+            font-weight: bold;
+            padding: 15px 30px;
+            margin: 15px auto;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            width: 150px;
+            font-size: 18px;
+        }
+
+        .role-btn:hover {
+            background-color: #e2b645;
+        }
+
+        /* Student Login Section */
+        .student-login {
+            display: none;
+            margin: 0 auto;
+            width: 400px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .student-login img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .student-login h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .student-login label {
+            display: block;
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        .student-login input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .student-login button {
+            display: inline-block;
+            background-color: #f1c74d;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .student-login button:hover {
+            background-color: #e2b645;
+        }
+
+    /* Professor Login Section */
+    .professor-login {
+            display: none;
+            margin: 0 auto;
+            width: 400px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .professor-login img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .professor-login h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .professor-login label {
+            display: block;
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        .professor-login input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .professor-login button {
+            display: inline-block;
+            background-color: #f1c74d;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .professor-login button:hover {
+            background-color: #e2b645;
+        }
+
+    /* Teacher Account Section */
+    .account-container {
+            display: none;
+            margin: 0 auto;
+            width: 400px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .account-container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .account-container h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .account-container .info {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .account-container .info p {
+            margin: 10px 0;
+        }
+
+        .account-container .info p span {
+            font-weight: bold;
+        }
+
+        .account-container .info p .edit-icon {
+            margin-left: 10px;
+            cursor: pointer;
+            color: #f1c74d;
+        }
+
+        .account-container button {
+            display: inline-block;
+            background-color: #f1c74d;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .account-container button:hover {
+            background-color: #e2b645;
+        }
+
+        .back-link {
+            text-align: left;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .back-link img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+    /* Teachers Courses Section */
+    .teachers-courses {
+        text-align: center;
+        margin: 20px auto;
+        max-width: 800px;
+    }
+
+    .teachers-courses h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .course {
+        display: inline-block;
+        width: 30%;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .course h3 {
+        margin: 10px 0;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .course p {
+        margin: 5px 0;
+        font-size: 16px;
+    }
+
+    .back-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .back-btn:hover {
+        background-color: #0056b3;
+    }
+        
+
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+
+    <!-- Login Screen -->
+    <div class="logo-container" id="login-section">
+        <img src="your-logo.png" alt="Attenzio Logo">
+        <h1>Atten<span>zio</span></h1>
+        <a href="#" class="login-btn" onclick="showRoleSelection()">Login</a>
+    </div>
+
+    <div class="signup" id="signup-section">
+        <p>Don’t have an account? <a href="#">Sign up</a></p>
+    </div>
+
+    <!-- Role Selection Screen -->
+    <div class="role-selection" id="role-section">
+        <h2>Who wants to use Attenzio?</h2>
+        <a href="#" class="role-btn" onclick="showStudentLogin()">Student</a>
+        <a href="#" class="role-btn"onclick="showProfessorLogin()"> Teacher</a>
+    </div>
+ 
+    <!-- Student Login Screen -->
+    <div class="student-login" id="student-login-section">
+        <img src="student-avatar.png" alt="Student Avatar">
+        <h2>Hi! Welcome to Attenzio again!</h2>
+        <form>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="example@gmail.com">
+
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="****">
+
+            <button type="submit">Login</button>
+        </form>
+        <p><a href="#">Forgot Password?</a></p>
+        <p><a href="#">Sign up</a></p>
+    </div>
+
+    <!-- Profesor Login Screen -->
+<div class="professor-login" id="professor-login-section">
+    <img src="professor-avatar.png" alt="Professor Avatar">
+    <h2>Hi! Welcome to Attenzio again!</h2>
+    <form id="login-form" onsubmit="return false;"> <!-- Añadido onsubmit para evitar recarga de página -->
+        <label for="email-professor">E-mail</label>
+        <input type="email" id="email-professor" placeholder="example@gmail.com">
+
+        <label for="password-professor">Password</label>
+        <input type="password" id="password-professor" placeholder="****">
+
+        <button type="button" onclick="showTeacherCourses()">Login</button> <!-- Cambio: Se añadió type="button" -->
+    </form>
+    <p><a href="#">Forgot Password?</a></p>
+    <p><a href="#">Sign up</a></p>
+</div>
+
+
+    <!-- Teacher Account Screen -->
+    <div class="account-container" id="teacher-account-section">
+        <div class="back-link" onclick="goBack()">
+            <img src="back-icon.png" alt="Back">
+            <span>Back</span>
+        </div>
+        <img src="teacher-avatar.png" alt="Teacher Avatar">
+        <h2>Your Account</h2>
+        <div class="info">
+            <p><span>ID:</span> 1059634848 <span class="edit-icon">&#9998;</span></p>
+            <p><span>Email:</span> example@gmail.com <span class="edit-icon">&#9998;</span></p>
+            <p><span>Address:</span> Calle 54 A #10-40 <span class="edit-icon">&#9998;</span></p>
+        </div>
+        <button onclick="logout()">Log out</button>
+    </div>
+
+    <!-- Teachers Courses Screen -->
+<div class="teachers-courses" id="teachers-courses-section" style="display: none;">
+    <h2>My Courses</h2>
+    <button class="course" onclick="openCourse('Bases de Datos')">
+        <h3>Bases de Datos</h3>
+        <p>Jefferson Amado Peña</p>
+        <p>2024 - II</p>
+    </button>
+
+    <button class="course" onclick="openCourse('Sistemas Operativos')">
+        <h3>Sistemas Operativos</h3>
+        <p>Jefferson Amado Peña</p>
+        <p>2024 - II</p>
+    </button>
+
+    <button class="course" onclick="openCourse('Computacion Grafica')">
+        <h3>Computacion Grafica</h3>
+        <p>Jefferson Amado Peña</p>
+        <p>2024 - II</p>
+    </button>
+
+    <button class="course" onclick="openCourse('Matematicas Discretas II')">
+        <h3>Matematicas Discretas II</h3>
+        <p>Jefferson Amado Peña</p>
+        <p>2024 - II</p>
+    </button>
+
+    <button class="course" onclick="openCourse('Matematicas Discretas I')">
+        <h3>Matematicas Discretas I</h3>
+        <p>Jefferson Amado Peña</p>
+        <p>2024 - II</p>
+    </button>
+
+    <button class="course" onclick="openCourse('Fundamentos de Programacion')">
+        <h3>Fundamentos de Programacion</h3>
+        <p>Jefferson Amado Peña</p>
+        <p>2024 - II</p>
+    </button>
+    <button class="back-btn" onclick="showProfessorLogin()">Back</button>
+</div>
+
+    <script>
+        function showRoleSelection() {
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('signup-section').style.display = 'none';
+            document.getElementById('role-section').style.display = 'block';
+        }
+
+        function showStudentLogin() {
+            document.getElementById('role-section').style.display = 'none';
+            document.getElementById('student-login-section').style.display = 'block';
+        }
+
+        function showProfessorLogin() {
+            document.getElementById('role-section').style.display = 'none';
+            document.getElementById('teachers-courses-section').style.display = 'none';
+            document.getElementById('professor-login-section').style.display = 'block';
+
+        }
+
+        function showTeacherAccount() {
+            document.getElementById('role-section').style.display = 'none';
+            document.getElementById('teacher-account-section').style.display = 'block';
+        }
+
+        function showTeacherCourses() {
+    // Para que al hacer click no recargue la página
+    event.preventDefault();
+
+    // Ocultamos la pantalla de login
+    document.getElementById('professor-login-section').style.display = 'none';
+    
+    // Mostramos la pantalla de cursos
+    document.getElementById('teachers-courses-section').style.display = 'block';
+}
+
+    
+
+        function logout() {
+            alert('Logging out...');
+        }
+    </script>
+</body>
+</html>
