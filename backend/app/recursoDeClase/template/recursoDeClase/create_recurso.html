@@ -1,0 +1,15 @@
+<!-- templates/create_recurso.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Recurso</title>
+</head>
+<body>
+    <h1>Crear Recurso para la Clase: {{ clase.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Recurso</button>
+    </form>
+</body>
+</html>

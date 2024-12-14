@@ -12,5 +12,6 @@ urlpatterns = [
     re_path(r'^pregunta/', include('app.pregunta.urls')),
     re_path(r'^recursoDeClase/', include('app.recursoDeClase.urls')),
     re_path(r'^rol/', include('app.rol.urls')),
-    re_path(r'^usuario/', include('app.usuario.urls'))
-]
+    re_path(r'^usuario/', include('app.usuario.urls')),
+    re_path(r'^recursoDeClase/', include('app.recursoDeClase.urls'))
+    ]

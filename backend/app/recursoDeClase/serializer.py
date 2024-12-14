@@ -1,8 +1,8 @@
-from rest_framework import serializers
+from django import forms
 from .models import RecursoDeClase
 
-class RecursoDeClaseSerializer(serializers.ModelSerializer):
+class RecursoDeClaseForm(forms.ModelForm):
   
   class Meta:
     model = RecursoDeClase
-    fields = '__all__'
+    fields = ['url']
