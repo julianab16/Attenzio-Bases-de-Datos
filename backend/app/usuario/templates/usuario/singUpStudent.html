@@ -1,0 +1,38 @@
+<!-- templates/registro_usuario.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+</head>
+<body>
+
+    <h2>Formulario de Registro de Usuario</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <label for="correo">Correo:</label>
+        {{ form.correo }}
+        
+        <label for="contraseña">Contraseña:</label>
+        {{ form.contraseña }}
+        
+        <label for="nombre">Nombre:</label>
+        {{ form.nombre }}
+        
+        <label for="numeroCelular">Número de Celular:</label>
+        {{ form.numeroCelular }}
+        
+        <label for="direccion">Dirección:</label>
+        {{ form.direccion }}
+        
+        <label for="foto">Foto:</label>
+        {{ form.foto }}
+
+        <button type="submit">Registrar</button>
+    </form>
+
+</body>
+</html>

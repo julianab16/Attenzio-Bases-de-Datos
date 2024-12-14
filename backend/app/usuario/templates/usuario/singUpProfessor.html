@@ -1,0 +1,93 @@
+<!-- templates/registro_usuario.html -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        /* Estilos para alinear la foto a la izquierda y los campos a la derecha */
+        .form-container {
+            display: flex;
+            justify-content: flex-start;  /* Alinea el contenido al principio (izquierda) */
+            gap: 20px;  /* Espacio entre la foto y el formulario */
+            align-items: flex-start;  /* Alinea los elementos en la parte superior */
+        }
+
+        .form-container .photo {
+            width: 150px;  /* Ancho fijo para la foto */
+            height: 150px;  /* Alto fijo para la foto */
+            margin-right: 20px;  /* Espacio entre la foto y el formulario */
+        }
+
+        .form-container .photo img {
+            width: 100%;  /* La imagen ocupará todo el espacio del contenedor */
+            height: 100%;  /* Mantener la altura de la imagen igual al contenedor */
+            object-fit: cover;  /* Ajuste para que la imagen se recorte si es necesario */
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;  /* Espacio entre los campos del formulario */
+            width: 300px;  /* Ancho fijo para el formulario */
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Formulario de Registro de Usuario</h2>
+    <form method="POST">
+      {% csrf_token %}
+      
+      <label for="correo">Correo:</label>
+      {{ form.correo }}  <!-- Campo del formulario para el Correo -->
+      
+      <label for="contraseña">Contraseña:</label>
+      {{ form.contraseña }}  <!-- Campo del formulario para la Contraseña -->
+      
+      <label for="nombre">Nombre:</label>
+      {{ form.nombre }}  <!-- Campo del formulario para el Nombre -->
+      
+      <label for="id">ID:</label>
+      {{ form.id }}  <!-- Campo del formulario para el ID -->
+      
+      <label for="direccion">Dirección:</label>
+      {{ form.direccion }}  <!-- Campo del formulario para la Dirección -->
+      
+      <button type="submit">Registrar</button>
+  </form>
+
+    {% if form.errors %}
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</body>
+</html>

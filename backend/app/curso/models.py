@@ -11,4 +11,4 @@ class Curso(models.Model):
         db_table = "curso"
         
     def __str__(self):
-        return self.name
+        return self.nombre

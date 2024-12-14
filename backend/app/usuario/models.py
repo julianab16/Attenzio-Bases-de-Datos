@@ -16,4 +16,4 @@ class Usuario(models.Model):
         db_table = "usuario"
         
     def __str__(self):
-        return self.name
+        return self. nombre

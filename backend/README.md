@@ -46,3 +46,11 @@ docker build -t jmb/attenzio_backend .
 docker run --name attenzio_backend -p 0.0.0.0:8000:8000 jmb/attenzio_backend
 ```
 
+
+Para hacer migraciones:
+
+python manage.py makemigrations
+
+python manage.py migrations
+
+python manage.py runserver

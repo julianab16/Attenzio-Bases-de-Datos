@@ -1,22 +1,29 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import ProfessorForm, EstudianteForm
 
-# Create your views here.
 
-from rest_framework import generics, status
-from rest_framework.response import Response
+def singUpProfessor(request):
+    if request.method == 'POST':
+        form = ProfessorForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda el objeto en la base de datos
+            return redirect('persona_exito')  
+    else:
+        form = ProfessorForm()
 
-from .models import Usuario
-from .serializer import UsuarioSerializer
+    return render(request, 'usuario/singUpProfessor.html', {'form': form})
 
-class ListCreateUsuario(generics.ListAPIView):
-  queryset = Usuario.objects.all()
-  serializer_class = UsuarioSerializer
-  
-  def post(self, request, *args, **kwargs):
-    data= request.data
-    serr = UsuarioSerializer(data=data)
-    if (serr.is_valid()):
-      serr.save()
-      return Response(serr.validated_data, status=status.HTTP_200_OK)  
-    
-    return Response(status=status.HTTP_400_BAD_REQUEST)
+def singUpStudent(request):
+    if request.method == 'POST':
+        form = EstudianteForm(request.POST)
+        if form.is_valid():
+            usuario = form.save(commit=False)
+            # Si la foto fue cargada, se asigna como datos binarios
+            if form.cleaned_data.get('foto'):
+                usuario.foto = form.cleaned_data.get('foto')
+            usuario.save()
+            return redirect('success_url') 
+    else:
+        form = EstudianteForm()
+
+    return render(request, 'usuario/singUpProfessor.html', {'form': form})
