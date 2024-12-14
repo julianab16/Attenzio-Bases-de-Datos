@@ -1,0 +1,244 @@
+/* Resetting the default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+    text-align: center;
+}
+
+/* Header */
+.header {
+    background-color: #f1c74d;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+/* Logo Section */
+.logo-container {
+    margin-top: 70px;
+    width: 350px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.logo-container img {
+    width: 120px;
+    height: auto;
+}
+
+.logo-container h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.logo-container h1 span {
+    color: #f1c74d;
+}
+
+/* Login Button */
+.login-btn {
+    display: inline-block;
+    background-color: #f1c74d;
+    color: #333;
+    font-weight: bold;
+    padding: 15px 30px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+}
+
+.login-btn:hover {
+    background-color: #e2b645;
+}
+
+/* Sign up Section */
+.signup {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.signup a {
+    color: #f1c74d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup a:hover {
+    text-decoration: underline;
+}
+
+/* Role Selection Screen */
+.role-selection {
+    display: none;
+    margin: 0 auto;
+    width: 400px;
+    padding: 40px;
+    background-color: #fff8e1;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.role-selection h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.role-btn {
+    display: block;
+    background-color: #f1c74d;
+    color: #333;
+    font-weight: bold;
+    padding: 15px 30px;
+    margin: 15px auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    width: 150px;
+    font-size: 18px;
+}
+
+.role-btn:hover {
+    background-color: #e2b645;
+}
+
+/* Login Forms */
+.student-login, .professor-login, .account-container {
+    display: none;
+    margin: 0 auto;
+    width: 400px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.student-login img, .professor-login img, .account-container img {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.student-login h2, .professor-login h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.student-login label, .professor-login label {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.student-login input, .professor-login input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.student-login button, .professor-login button, .account-container button {
+    display: inline-block;
+    background-color: #f1c74d;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.student-login button:hover, .professor-login button:hover, .account-container button:hover {
+    background-color: #e2b645;
+}
+
+/* Back Link */
+.back-link {
+    text-align: left;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.back-link img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* Teachers Courses Section */
+.teachers-courses {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.teachers-courses h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.course {
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.course h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.course p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.back-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
