@@ -6,7 +6,7 @@ export default function Inicio() {
     return(
         <SafeAreaView style={productstyle.container}> 
         <StatusBar barStyle="dark-content" /> 
-        <View style={productstyle.c}>
+        <View style={productstyle.container}>
             <Image style={productstyle.imagenPerfile} source={require('../assets/Attenzio.png')} />
         </View>
         </SafeAreaView>
